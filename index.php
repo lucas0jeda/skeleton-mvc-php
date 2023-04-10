@@ -1,13 +1,14 @@
 <?php
 
-<?php
-
 require __DIR__.'/autoload.php';
+
+
 
 if(isset($_GET['controller'])){
     $name_controller = $_GET['controller']."Controller";
 }else{
-    PublicController::error("No existe controller");
+    echo "No existe controller";
+    die();
 }
 
 $nameclass = ucfirst($name_controller);
@@ -18,8 +19,8 @@ if(class_exists($nameclass)){
         $action = $_GET['action'];
         $controller->$action();
     }else{
-        PublicController::error("Falta action o no exite metodo");
+        echo "Falta action o no exite metodo";
     }
 }else{
-    PublicController::error($nameclass);
+    echo $nameclass;
 }
