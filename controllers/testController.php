@@ -6,6 +6,13 @@ class TestController {
     
     public function index(){
         $testModel = new TestModel();
-        $testModel->functionTest();
+        $resultConsult = $testModel->functionTest();
+        var_dump($resultConsult);
+    }
+
+    public function testCurl(){        
+        $testModel = new TestModel();
+        $resultCurl = $testModel->testCurl();
+        echo $resultCurl;  
     }
 }
