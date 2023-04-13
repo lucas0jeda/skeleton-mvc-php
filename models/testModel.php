@@ -1,6 +1,7 @@
 <?php
 
 require_once("DataBase.php");
+require("assets/curl.php");
 
 class TestModel {
 
@@ -11,7 +12,18 @@ class TestModel {
     }
 
     public function functionTest(){
-        echo "Hello world by Model Function Test";
+        $query = "select * from test";
+        $result = false;
+        $select = $this->db->query($query);
+        if($select){
+            $result = $select->fetch_all(MYSQLI_ASSOC);
+        }
+        return $result;
+    }
+
+    public function testCurl(){
+        $resultCurl = curl::get("https://api.mercadolibre.com/categories/MLU158301/attributes");
+        echo $resultCurl;
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-require_once('./assets/Const.php');
+require_once('assets/Const.php');
 
 class DataBase{
 
